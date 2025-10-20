@@ -42,7 +42,7 @@ smartcheckout/
 │   ├── api-gateway/        # Gateway
 │   ├── payment-service/    # Pagamentos
 │   ├── search-service/     # Busca Elasticsearch
-│   └── chat-service/       # Chat em tempo real
+│   └── chat-service/       # Chat
 ├── scripts/                # Scripts de gerenciamento
 │   ├── start.sh
 │   ├── stop.sh
@@ -156,19 +156,5 @@ chmod +x scripts/*.sh
 
 Após iniciar a infrastructure:
 - **RabbitMQ UI**: http://localhost:15672 (admin/admin123)
-
----
-
----
-
-## 🎓 Conceitos Demonstrados
-
-- ✅ Arquitetura de Microserviços
-- ✅ Database per Service Pattern
-- ✅ Docker e Containerização
-- ✅ Mensageria (RabbitMQ)
-- ⏳ API RESTful (Laravel)
-- ⏳ Comunicação Assíncrona
-- ⏳ Autenticação JWT
 
 ---
