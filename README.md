@@ -108,13 +108,13 @@ chmod +x scripts/*.sh
 - [x] Estrutura base
 
 ### 🔄 Fase 2: Customer Service 
-- [ ] Setup Laravel + Docker
-- [ ] PostgreSQL dedicado
-- [ ] **Autenticação JWT** (gera tokens)
-- [ ] CRUD de Clientes
-- [ ] CRUD de Funcionários
-- [ ] Sistema de Pedidos
-- [ ] API RESTful
+- [x] Setup Laravel + Docker
+- [x] PostgreSQL dedicado
+- [x] **Autenticação JWT** (gera tokens)
+- [x] CRUD de Clientes
+- [x] CRUD de Funcionários
+- [x] Sistema de Pedidos
+- [ ] Cache
 
 ### ⏳ Fase 3: Product Service
 - [ ] Setup Laravel + Docker

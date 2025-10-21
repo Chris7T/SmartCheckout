@@ -1,0 +1,46 @@
+services:
+  customer-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: smartcheckout-customer-service
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    depends_on:
+      customer-db:
+        condition: service_healthy
+    networks:
+      - smartcheckout-network
+    ports:
+      - "8001:8000"
+
+  customer-db:
+    image: postgres:15-alpine
+    container_name: smartcheckout-customer-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: customer_db
+      POSTGRES_USER: customer_user
+      POSTGRES_PASSWORD: customer_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - customer-db-data:/var/lib/postgresql/data
+    networks:
+      - smartcheckout-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U customer_user -d customer_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  smartcheckout-network:
+    external: true
+
+volumes:
+  customer-db-data:
+    name: smartcheckout-customer-db-data
+
