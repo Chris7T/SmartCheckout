@@ -26,7 +26,6 @@ class ListOrdersTest extends TestCase
                     '*' => [
                         'id',
                         'customer_id',
-                        'customer',
                         'value',
                         'liquid_value',
                         'status_id',
@@ -99,5 +98,23 @@ class ListOrdersTest extends TestCase
                 ]
             ]);
     }
-}
 
+    public function test_customer_only_sees_own_orders(): void
+    {
+        $customerA = Customer::factory()->create(['name' => 'Customer A']);
+        $customerB = Customer::factory()->create(['name' => 'Customer B']);
+        
+        Order::factory()->count(3)->create(['customer_id' => $customerA->id]);
+        Order::factory()->count(2)->create(['customer_id' => $customerB->id]);
+
+        $response = $this->actingAsCustomer($customerB)
+            ->getJson('/api/orders');
+
+        $response->assertStatus(200);
+        $this->assertEquals(2, $response->json('meta.total'));
+        
+        foreach ($response->json('data') as $order) {
+            $this->assertEquals($customerB->id, $order['customer_id']);
+        }
+    }
+}

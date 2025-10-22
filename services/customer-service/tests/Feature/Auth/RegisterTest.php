@@ -33,7 +33,7 @@ class RegisterTest extends TestCase
                 'name' => 'John Doe',
                 'email' => 'john@example.com',
                 'type_id' => 1,
-                'type' => 'client',
+                'type' => 'Client',
             ]);
 
         $this->assertDatabaseHas('customers', [
@@ -53,7 +53,7 @@ class RegisterTest extends TestCase
 
         $response->assertStatus(201)
             ->assertJson([
-                'type' => 'employee',
+                'type' => 'Employee',
             ]);
     }
 

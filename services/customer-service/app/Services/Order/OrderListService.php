@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Order;
 
 use App\Repositories\OrderRepository;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -11,8 +11,8 @@ class OrderListService
         private OrderRepository $orderRepository
     ) {}
 
-    public function execute(int $perPage = 15): LengthAwarePaginator
+    public function execute(int $customerId, int $perPage = 15): LengthAwarePaginator
     {
-        return $this->orderRepository->getAll($perPage);
+        return $this->orderRepository->getByCustomerId($customerId, $perPage);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Order;
 
 use App\Models\Order;
 use App\Repositories\OrderRepository;
@@ -9,7 +9,8 @@ class OrderUpdateService
 {
     public function __construct(
         private OrderRepository $orderRepository,
-        private OrderGetDetailService $getDetailService
+        private OrderGetDetailService $getDetailService,
+        private OrderCleanCacheService $orderCleanCacheService
     ) {}
 
     public function execute(int $id, array $data): Order
@@ -18,6 +19,8 @@ class OrderUpdateService
 
         $this->orderRepository->update($id, $data);
 
-        return $this->orderRepository->findById($id);
+        $this->orderCleanCacheService->execute($id);
+
+        return $this->getDetailService->execute($id);
     }
 }

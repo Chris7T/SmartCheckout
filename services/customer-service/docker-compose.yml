@@ -11,6 +11,8 @@ services:
     depends_on:
       customer-db:
         condition: service_healthy
+      customer-redis:
+        condition: service_healthy
     networks:
       - smartcheckout-network
     ports:
@@ -36,6 +38,21 @@ services:
       timeout: 5s
       retries: 5
 
+  customer-redis:
+    image: redis:7-alpine
+    container_name: smartcheckout-customer-redis
+    restart: unless-stopped
+    volumes:
+      - customer-redis-data:/data
+    networks:
+      - smartcheckout-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    command: redis-server --appendonly yes
+
 networks:
   smartcheckout-network:
     external: true
@@ -43,4 +60,6 @@ networks:
 volumes:
   customer-db-data:
     name: smartcheckout-customer-db-data
+  customer-redis-data:
+    name: smartcheckout-customer-redis-data
 

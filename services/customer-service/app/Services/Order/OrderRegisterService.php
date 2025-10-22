@@ -1,19 +1,21 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Order;
 
 use App\Enums\OrderStatusEnum;
 use App\Enums\PaymentStatusEnum;
 use App\Models\Order;
 use App\Repositories\CartRepository;
 use App\Repositories\OrderRepository;
+use App\Services\Customer\CustomerGetByIdService;
 
 class OrderRegisterService
 {
     public function __construct(
         private OrderRepository $orderRepository,
         private CartRepository $cartRepository,
-        private CustomerGetByIdService $getCustomerService
+        private CustomerGetByIdService $getCustomerService,
+        private OrderGetDetailService $getDetailService
     ) {}
 
     public function execute(array $data): Order
@@ -38,6 +40,6 @@ class OrderRegisterService
             }
         }
 
-        return $this->orderRepository->findById($order->id);
+        return $this->getDetailService->execute($order->id);
     }
 }

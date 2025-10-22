@@ -6,7 +6,7 @@ use App\Exceptions\CustomerNotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderStoreRequest;
 use App\Http\Resources\OrderResource;
-use App\Services\OrderRegisterService;
+use App\Services\Order\OrderRegisterService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;

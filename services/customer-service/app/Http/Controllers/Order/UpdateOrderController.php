@@ -6,7 +6,7 @@ use App\Exceptions\OrderNotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderUpdateRequest;
 use App\Http\Resources\OrderResource;
-use App\Services\OrderUpdateService;
+use App\Services\Order\OrderUpdateService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;

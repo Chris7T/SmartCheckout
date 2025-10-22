@@ -29,7 +29,7 @@ class UpdateOrderTest extends TestCase
             ->assertJson([
                 'id' => $order->id,
                 'status_id' => 2,
-                'status' => 'processing',
+                'status' => 'Processing',
             ]);
 
         $this->assertDatabaseHas('orders', [
@@ -55,7 +55,7 @@ class UpdateOrderTest extends TestCase
         $response->assertStatus(200)
             ->assertJson([
                 'payment_status_id' => 2,
-                'payment_status' => 'approved',
+                'payment_status' => 'Approved',
             ]);
     }
 

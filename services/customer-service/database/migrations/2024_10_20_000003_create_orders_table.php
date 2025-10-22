@@ -11,7 +11,6 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('customer_id')->constrained('customers')->onDelete('cascade');
-            $table->foreignId('cart_id')->nullable()->constrained('carts')->onDelete('set null');
             $table->decimal('value', 10, 2);
             $table->decimal('liquid_value', 10, 2);
             $table->unsignedTinyInteger('status_id')->default(1);

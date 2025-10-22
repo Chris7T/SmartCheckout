@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Exceptions\TokenNotProvidedException;
 use App\Http\Controllers\Controller;
-use App\Services\CustomerLogoutService;
+use App\Services\Customer\CustomerLogoutService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

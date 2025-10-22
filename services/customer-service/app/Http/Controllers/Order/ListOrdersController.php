@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Order;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderResource;
-use App\Services\OrderListService;
+use App\Services\Order\OrderListService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -20,7 +20,7 @@ class ListOrdersController extends Controller
     {
         try {
             $perPage = $request->get('per_page', 15);
-            $orders = $this->listService->execute($perPage);
+            $orders = $this->listService->execute(auth()->id(), $perPage);
 
             return response()->json([
                 'data' => OrderResource::collection($orders->items()),

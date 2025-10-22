@@ -32,7 +32,6 @@ class Customer extends Authenticatable implements JWTSubject
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            'type_id' => CustomerTypeEnum::class,
         ];
     }
 
@@ -43,12 +42,12 @@ class Customer extends Authenticatable implements JWTSubject
 
     public function isClient(): bool
     {
-        return $this->type_id === CustomerTypeEnum::CLIENT;
+        return $this->type_id === CustomerTypeEnum::CLIENT->value;
     }
 
     public function isEmployee(): bool
     {
-        return $this->type_id === CustomerTypeEnum::EMPLOYEE;
+        return $this->type_id === CustomerTypeEnum::EMPLOYEE->value;
     }
 
     public function getJWTIdentifier()
@@ -60,7 +59,7 @@ class Customer extends Authenticatable implements JWTSubject
     {
         return [
             'email' => $this->email,
-            'type_id' => $this->type_id->value,
+            'type_id' => $this->type_id,
         ];
     }
 }

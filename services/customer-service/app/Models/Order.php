@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Enums\OrderStatusEnum;
-use App\Enums\PaymentStatusEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -16,7 +14,6 @@ class Order extends Model
 
     protected $fillable = [
         'customer_id',
-        'cart_id',
         'value',
         'liquid_value',
         'status_id',
@@ -28,8 +25,6 @@ class Order extends Model
         return [
             'value' => 'decimal:2',
             'liquid_value' => 'decimal:2',
-            'status_id' => OrderStatusEnum::class,
-            'payment_status_id' => PaymentStatusEnum::class,
         ];
     }
 
@@ -50,4 +45,3 @@ class Order extends Model
         return $this->hasMany(Cart::class);
     }
 }
-

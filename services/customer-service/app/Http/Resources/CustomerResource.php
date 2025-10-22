@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Enums\CustomerTypeEnum;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -13,8 +14,8 @@ class CustomerResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
-            'type_id' => $this->type_id->value,
-            'type' => strtolower($this->type_id->label()),
+            'type_id' => $this->type_id,
+            'type' => CustomerTypeEnum::tryFrom($this->type_id)?->label(),
             'email_verified_at' => $this->email_verified_at,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

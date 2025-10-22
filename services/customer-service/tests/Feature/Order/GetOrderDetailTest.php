@@ -26,7 +26,6 @@ class GetOrderDetailTest extends TestCase
             ->assertJsonStructure([
                 'id',
                 'customer_id',
-                'customer',
                 'value',
                 'liquid_value',
                 'status_id',
@@ -77,7 +76,7 @@ class GetOrderDetailTest extends TestCase
         $response->assertStatus(200)
             ->assertJson([
                 'status_id' => 3,
-                'status' => 'completed',
+                'status' => 'Completed',
             ]);
     }
 
@@ -96,7 +95,7 @@ class GetOrderDetailTest extends TestCase
         $response->assertStatus(200)
             ->assertJson([
                 'payment_status_id' => 2,
-                'payment_status' => 'approved',
+                'payment_status' => 'Approved',
             ]);
     }
 }

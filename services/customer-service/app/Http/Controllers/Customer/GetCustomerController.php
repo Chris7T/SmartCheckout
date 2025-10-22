@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Customer;
 use App\Exceptions\CustomerNotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CustomerResource;
-use App\Services\CustomerGetByIdService;
+use App\Services\Customer\CustomerGetByIdService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;

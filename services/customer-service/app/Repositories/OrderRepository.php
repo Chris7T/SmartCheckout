@@ -14,7 +14,7 @@ class OrderRepository
 
     public function findById(int $id): ?Order
     {
-        return Order::with(['customer', 'carts'])->find($id);
+        return Order::find($id);
     }
 
     public function update(int $id, array $data): bool
@@ -29,15 +29,13 @@ class OrderRepository
 
     public function getAll(int $perPage = 15): LengthAwarePaginator
     {
-        return Order::with(['customer', 'carts'])
-            ->orderBy('created_at', 'desc')
+        return Order::orderBy('created_at', 'desc')
             ->paginate($perPage);
     }
 
     public function getByCustomerId(int $customerId, int $perPage = 15): LengthAwarePaginator
     {
-        return Order::with('carts')
-            ->where('customer_id', $customerId)
+        return Order::where('customer_id', $customerId)
             ->orderBy('created_at', 'desc')
             ->paginate($perPage);
     }

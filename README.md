@@ -114,35 +114,32 @@ chmod +x scripts/*.sh
 - [x] CRUD de Clientes
 - [x] CRUD de Funcionários
 - [x] Sistema de Pedidos
-- [ ] Cache
+- [x] Cache
 
 ### ⏳ Fase 3: Product Service
 - [ ] Setup Laravel + Docker
 - [ ] PostgreSQL dedicado
 - [ ] CRUD de Produtos
 - [ ] Controle de Estoque
+- [ ] Cache
 
 ### ⏳ Fase 4: API Gateway **JWT Auth**
 - [ ] Setup Laravel
-- [ ] Roteamento (Customer + Product)
-- [ ] Validação de JWT (valida tokens do Customer)
+- [ ] Roteamento
+- [ ] Validação de JWT
 - [ ] Rate limiting + CORS
 
 ### ⏳ Fase 5: Payment Service
 - [ ] Setup Laravel + Docker
 - [ ] PostgreSQL dedicado
 - [ ] Processamento de pagamentos
-- [ ] Integração via RabbitMQ
 
 ### ⏳ Fase 6: Search Service
-- [ ] Elasticsearch na infrastructure
-- [ ] Indexação de produtos
-- [ ] Busca full-text
+- [ ] Elasticsearch de Produtos
 
 ### ⏳ Fase 7: Chat Service
-- [ ] Setup Laravel + WebSockets
-- [ ] Chat em tempo real
-- [ ] Atendimento ao cliente
+- [ ] Laravel
+- [ ] WebSockets
 
 ### ⏳ Fase 8: Observabilidade
 - [ ] Prometheus + Grafana

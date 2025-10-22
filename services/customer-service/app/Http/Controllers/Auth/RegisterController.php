@@ -6,7 +6,7 @@ use App\Exceptions\CustomerEmailAlreadyExistsException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CustomerRegisterRequest;
 use App\Http\Resources\CustomerResource;
-use App\Services\CustomerRegisterService;
+use App\Services\Customer\CustomerRegisterService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;

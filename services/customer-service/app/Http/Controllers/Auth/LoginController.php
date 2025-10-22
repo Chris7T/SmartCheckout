@@ -6,7 +6,7 @@ use App\Exceptions\InvalidCredentialsException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Resources\CustomerResource;
-use App\Services\CustomerLoginService;
+use App\Services\Customer\CustomerLoginService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;

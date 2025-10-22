@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Order;
 use App\Exceptions\OrderNotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderResource;
-use App\Services\OrderGetDetailService;
+use App\Services\Order\OrderGetDetailService;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;

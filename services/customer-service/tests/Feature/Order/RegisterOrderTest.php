@@ -41,15 +41,14 @@ class RegisterOrderTest extends TestCase
                 'status',
                 'payment_status_id',
                 'payment_status',
-                'carts',
-                'customer',
+                'carts'
             ])
             ->assertJson([
                 'customer_id' => $customer->id,
                 'value' => '100.50',
                 'liquid_value' => '95.00',
                 'status_id' => 1,
-                'status' => 'pending',
+                'status' => 'Pending',
             ]);
 
         $this->assertDatabaseHas('orders', [

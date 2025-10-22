@@ -36,7 +36,7 @@ class GetCustomerTest extends TestCase
                 'name' => 'John Doe',
                 'email' => 'john@example.com',
                 'type_id' => 1,
-                'type' => 'client',
+                'type' => 'Client',
             ]);
     }
 
@@ -65,7 +65,7 @@ class GetCustomerTest extends TestCase
         $response->assertStatus(200)
             ->assertJson([
                 'type_id' => 2,
-                'type' => 'employee',
+                'type' => 'Employee',
             ]);
     }
 }
